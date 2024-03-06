@@ -1,10 +1,47 @@
 .main {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
   padding: 6rem;
   min-height: 100vh;
+}
+
+.formcontainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+}
+
+.formcontent1 {
+  margin: 5px;
+  width: 66%;
+}
+
+.formcontent2 {
+  margin: 5px;
+  width: 34%;
+}
+
+.headerhr {
+  width: 50%;
+  align-self: center;
+  color: lightgray;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.hr {
+  width: 50%;
+  color: lightgray;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.confirmed {
+  color: green;
+  font-weight: bold;
 }
 
 .description {
