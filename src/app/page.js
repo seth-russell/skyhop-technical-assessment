@@ -3,8 +3,10 @@
 import Dropdown from "./Components/Dropdown";
 import FileUpload from "./Components/FileUpload";
 import Image from "next/image";
+import { LuClock5 } from 'react-icons/lu';
 import RadioButtons from "./Components/RadioButtons";
 import styles from "./page.module.css";
+import Switch from "react-switch";
 import { useState } from "react";
 
 // Color sampling
@@ -27,6 +29,10 @@ export default function Home() {
 
   const handleNumberClientsChange = (event) => {
     setNumberClients(event.target.value);
+  }
+
+  const handleToleranceToggle = (checked) => {
+    setTolerance(checked);
   }
 
   function displaySocialDistanceOptions() {
@@ -68,7 +74,20 @@ export default function Home() {
             <p className={styles.confirmed}>No Elapsed Dates!</p>
             <hr className={styles.hr} />
             <h4>Tolerance Window:</h4>
-            <p>INSERT TOGGLE SWITCH HERE</p>
+            <div className={styles.tolerancetoggle}>
+              <Switch
+                onChange={handleToleranceToggle}
+                checked={tolerance}
+                offColor="#BDBDBD"
+                onColor="#0A2D4D"
+                uncheckedIcon={false}
+                checkedIcon={false}
+              />
+              <span>{tolerance ? "Toggle ON" : "Toggle OFF"}</span>
+              <span className={styles.divider}>|</span>
+              <LuClock5 className={styles.icon} />
+              <span>Select Tolerance Level</span>
+            </div>
           </div>
           <div className={styles.formcontent2}>
             <h4>Split schedule using social distancing?</h4>

@@ -24,7 +24,7 @@ export default function Dropdown(props) {
 
 	return (
 		<div className={styles.main}>
-			{props.label && (<label class={styles.label} for={dropdownId}>{props.label}</label>)}
+			{props.label && (<label className={styles.label} for={dropdownId}>{props.label}</label>)}
 			<select name={props.name} id={dropdownId} className={selectClassNames}>
 				{options()}
 			</select>
