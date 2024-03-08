@@ -6,7 +6,7 @@ export default function FileUpload(props) {
 		<div className={styles.main}>
 			<div className={styles.inner}>
 				<RiFileReduceFill className={styles.icon} />
-				<p>Drag & Drop Here Or <a>Browse</a></p>
+				<p className={styles.browse}>Drag & Drop Here Or <input type="file" accept=".csv" onChange={props.onChange} /></p>
 			</div>
 			<button className={styles.button}>Upload Manifest</button>
 		</div>

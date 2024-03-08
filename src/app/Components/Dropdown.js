@@ -12,10 +12,10 @@ export default function Dropdown(props) {
 	function options() {
 		let opts = [];
 		if (props.title) {
-			opts.push(<option value="" key="title" className={styles.titleoption}>{props.title}</option>);
+			opts.push(<option value="" key="title" className={styles.option}>{props.title}</option>);
 		}
 		for (const option of props.options) {
-			opts.push(<option value={option} key={option}>{option}</option>);
+			opts.push(<option value={option} key={option} className={styles.option}>{option}</option>);
 		}
 		return opts;
 	}

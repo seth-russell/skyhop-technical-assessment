@@ -13,8 +13,8 @@
 	margin-right: 10px;
 }
 
-.titleoption {
-	font-weight: bold;
+.option {
+	background-color: #FFFFFF;
 }
 
 .select {
@@ -43,4 +43,18 @@
 	width: 20px;
 	margin-left: 7px;
 	transform: rotate(150deg);
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .main {
+    flex-direction: column;
+  }
+}
+
+/* Tablet and Smaller Desktop */
+@media (min-width: 701px) and (max-width: 1120px) {
+  .main {
+    align-items: left;
+  }
 }
