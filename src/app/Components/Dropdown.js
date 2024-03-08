@@ -2,24 +2,30 @@ import styles from '@/app/ui/Dropdown.module.css';
 import { LuClock5 } from 'react-icons/lu';
 
 export default function Dropdown(props) {
-	const labeled = props.style === "labeled";
-	const dropdownId = props.label.replace(/\s+/g, "");
+	const dropdownId =
+		props.label
+		? props.label.replace(/\s+/g, "")
+		: props.title
+		? props.title.replace(/\s+/g, "")
+		: "genericid";
 
 	function options() {
 		let opts = [];
-		if (!labeled) {
-			opts.push(<option value="">{props.label}</option>);
+		if (props.title) {
+			opts.push(<option value="" key="title" className={styles.titleoption}>{props.title}</option>);
 		}
 		for (const option of props.options) {
-			opts.push(<option value={option}>{option}</option>)
+			opts.push(<option value={option} key={option}>{option}</option>);
 		}
 		return opts;
 	}
 
+	const selectClassNames = `${styles.select} ${props.label ? styles.labeled : styles.titled}`;
+
 	return (
 		<div className={styles.main}>
-			{labeled && (<label class={styles.label} for={dropdownId}>{props.label}</label>)}
-			<select name={props.name} id={dropdownId} className={labeled ? styles.labeled : styles.titled}>
+			{props.label && (<label class={styles.label} for={dropdownId}>{props.label}</label>)}
+			<select name={props.name} id={dropdownId} className={selectClassNames}>
 				{options()}
 			</select>
 			{props.toleranceToggled && (<LuClock5 className={styles.icon} />)}

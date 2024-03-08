@@ -4,43 +4,96 @@
   align-items: center;
   padding: 6rem;
   min-height: 100vh;
+  color: #0A2D4D;
+}
+
+.popup {
+  border-radius: 10px;
+  background-color: #FFFFFF;
+  width: 80%;
+  height: 60%;
+  padding: 75px;
+}
+
+.formheader {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
 }
 
 .formcontainer {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  align-items: center;
   padding: 5px;
+  margin-bottom: 32px;
+  width: 100%;
 }
 
 .formcontent1 {
-  margin: 5px;
-  width: 66%;
+  margin-right: 60px;
+  flex-basis: 66%;
 }
 
 .formcontent2 {
-  margin: 5px;
-  width: 34%;
+  flex-basis: 34%;
+}
+
+.formfooter {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.formfooterbuttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.continuebutton {
+  width: 240px;
+  height: 36px;
+  margin: 12px;
+  color: #FFFFFF;
+  background-color: #0A2D4D;
+  border-radius: 5px;
+  border: 2px;
+  border-color: #0A2D4D;
+  font-weight: bold;
+}
+
+.cancelbutton {
+  width: 240px;
+  height: 36px;
+  margin: 12px;
+  color: #FA9D26;
+  background-color: #FFFFFF;
+  border: 2px;
+  border-color: #FA9D26;
+  border-radius: 5px;
+  font-weight: bold;
 }
 
 .headerhr {
-  width: 50%;
+  width: 25%;
   align-self: center;
-  color: lightgray;
+  color: #BDBDBD;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
 .hr {
   width: 50%;
-  color: lightgray;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  color: #BDBDBD;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .confirmed {
-  color: green;
+  color: #2DA96D;
   font-weight: bold;
 }
 

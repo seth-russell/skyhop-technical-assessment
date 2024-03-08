@@ -1,35 +1,46 @@
 .main {
 	display: flex;
 	flex-direction: row;
+	align-items: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
 
 .label {
 	display: flex;
-	width: 45%;
+	font-size: 12px;
+	flex-basis: 45%;
+	margin-right: 10px;
+}
+
+.titleoption {
+	font-weight: bold;
+}
+
+.select {
+	display: flex;
+	padding-left: 20px;
+	padding-right: 20px;
+	height: 40px;
+	border-width: 1px;
+	border-style: solid;
+	border-radius: 5px;
+	border-color: #BDBDBD;
+	color: #0A2D4D;
+	background-color: transparent;
 }
 
 .labeled {
-	display: flex;
-	padding: 10px;
-	width: 45%;
-	margin-top: 5px;
-	margin-bottom: 5px;
-	boder-radius: 5px;
-	border: 1px lightgray;
+	flex-basis: 45%;
 }
 
 .titled {
-	display: flex;
-	padding: 10px;
-	width: 100%;
-	margin-top: 5px;
-	margin-bottom: 5px;
-	border-radius: 5px;
-	border: 1px lightgray;
+	flex-basis: 100%;
 }
 
 .icon {
-	width: 10%;
-	margin: 5px;
+	height: 20px;
+	width: 20px;
+	margin-left: 7px;
 	transform: rotate(150deg);
 }
