@@ -9,6 +9,7 @@ import styles from "./page.module.css";
 import Switch from "react-switch";
 import ToleranceIcon from './Components/ToleranceIcon';
 import UploadBar from "./Components/UploadBar";
+import UploadConfirmation from "./Components/UploadConfirmation";
 import { useState } from "react";
 
 // Color sampling
@@ -25,7 +26,7 @@ export default function Home() {
   const [ tolerance, setTolerance ] = useState(true);
   const [ splitSchedule, setSplitSchedule ] = useState("Yes");
   const [ numberClients, setNumberClients ] = useState("Multiple");
-  const [ file, setFile ] = useState();
+  const [ file, setFile ] = useState(null);
 
   return (
     <main className={styles.main}>
@@ -143,13 +144,7 @@ export default function Home() {
               }
             </div>
           </div>
-          <div className={styles.formfooter}>
-            <h3>Data in the import file is correct. Please press Continue to import.</h3>
-            <div className={styles.formfooterbuttons}>
-              <button className={styles.continuebutton}>Continue Import</button>
-              <button className={styles.cancelbutton}>Cancel</button>
-            </div>
-          </div>
+          <UploadConfirmation filePresent={file !== null} handleFileChange={setFile} />
         </div>
         )
       }
