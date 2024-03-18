@@ -6,8 +6,7 @@ import Image from "next/image";
 import { MdClose } from "react-icons/md";
 import RadioButtons from "./Components/RadioButtons";
 import styles from "./page.module.css";
-import Switch from "react-switch";
-import ToleranceIcon from './Components/ToleranceIcon';
+import ToleranceSwitch from './Components/ToleranceSwitch';
 import UploadBar from "./Components/UploadBar";
 import UploadConfirmation from "./Components/UploadConfirmation";
 import { useState } from "react";
@@ -34,7 +33,7 @@ export default function Home() {
         !showUpload && (
           <div>
             <button
-              className={styles.continuebutton}
+              className={styles.button}
               onClick={() => setShowUpload(true)}
             >
               Upload Document
@@ -65,28 +64,13 @@ export default function Home() {
               <hr className={styles.hr} />
               <h4>Select a manifest that you'd like to import</h4>
               <FileUpload handleFileChange={setFile} />
-              <UploadBar
-                file={file}
-              />
+              <UploadBar file={file} />
               <hr className={styles.hr} />
               <h4>Elapse Data Checking:</h4>
               <p className={styles.confirmed}>No Elapsed Dates!</p>
               <hr className={styles.hr} />
               <h4>Tolerance Window:</h4>
-              <div className={styles.tolerancetoggle}>
-                <Switch
-                  onChange={(checked) => setTolerance(checked)}
-                  checked={tolerance}
-                  offColor="#BDBDBD"
-                  onColor="#0A2D4D"
-                  uncheckedIcon={false}
-                  checkedIcon={false}
-                />
-                <span>{tolerance ? "Toggle ON" : "Toggle OFF"}</span>
-                <span className={styles.divider}>|</span>
-                <ToleranceIcon />
-                <span>Select Tolerance Level</span>
-              </div>
+              <ToleranceSwitch tolerance={tolerance} handleToleranceChange={setTolerance} />
             </div>
             <div className={styles.formcontent2}>
               <h4>Split schedule using social distancing?</h4>

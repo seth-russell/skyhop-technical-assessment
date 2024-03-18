@@ -58,43 +58,6 @@
   flex-basis: 34%;
 }
 
-.formfooter {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-}
-
-.formfooterbuttons {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.continuebutton {
-  width: 240px;
-  height: 40px;
-  margin: 12px;
-  color: #FFFFFF;
-  background-color: #0A2D4D;
-  border-width: 0px;
-  border-radius: 5px;
-  font-weight: bold;
-}
-
-.cancelbutton {
-  width: 240px;
-  height: 40px;
-  margin: 12px;
-  color: #FA9D26;
-  background-color: #FFFFFF;
-  border-width: 2px;
-  border-style: solid;
-  border-color: #FA9D26;
-  border-radius: 5px;
-  font-weight: bold;
-}
-
 .headerhr {
   width: 25%;
   align-self: center;
@@ -115,35 +78,29 @@
   font-weight: bold;
 }
 
-.tolerancetoggle {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding-top: 10px;
-  padding-bottom: 10px;
+.button {
+  width: 240px;
+  height: 40px;
+  margin: 12px;
+  color: #FFFFFF;
+  background-color: #0A2D4D;
+  border-width: 0px;
+  border-radius: 5px;
+  font-weight: bold;
 }
 
-.tolerancetoggle span {
-  align-items: center;
-  margin-left: 5px;
-}
-
-.divider {
-  margin-left: 15px !important;
-  margin-right: 15px;
-}
-
-/* Mobile */
-@media (max-width: 700px) {
+@media (max-width: 1120px) {
   .formcontainer {
     flex-direction: column;
   }
-}
 
-/* Tablet and Smaller Desktop */
-@media (min-width: 701px) and (max-width: 1120px) {
-  .formcontainer {
-    flex-direction: column;
+  .formcontent1 {
+    margin-right: 0px;
+    flex-basis: 100%;
+  }
+
+  .formcontent2 {
+    flex-basis: 100%;
   }
 }
 
