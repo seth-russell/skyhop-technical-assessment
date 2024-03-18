@@ -15,7 +15,7 @@ export default function RadioButtons(props) {
 					  id={option}
 					  className={styles.radio}
 					  checked={props.selected === option}
-					  onChange={props.handleChange}
+					  onChange={(e) => props.handleChange(e.target.value)}
 					/>
 					<label className={styles.label} for={option}>{option}</label>
 				</>);

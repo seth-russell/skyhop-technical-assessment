@@ -3,11 +3,11 @@
 import Dropdown from "./Components/Dropdown";
 import FileUpload from "./Components/FileUpload";
 import Image from "next/image";
-import { LuClock5 } from "react-icons/lu";
 import { MdClose } from "react-icons/md";
 import RadioButtons from "./Components/RadioButtons";
 import styles from "./page.module.css";
 import Switch from "react-switch";
+import ToleranceIcon from './Components/ToleranceIcon';
 import UploadBar from "./Components/UploadBar";
 import { useState } from "react";
 
@@ -17,47 +17,15 @@ import { useState } from "react";
 // Borders: #BDBDBD
 // Upload: #FA9D26
 
+const CLIENTS = ["Client 1", "Client 2", "Client 3", "Client 4"];
+const TESTING_CENTERS = ["Testing Center 1", "Testing Center 2", "Testing Center 3", "Testing Center 4"];
+
 export default function Home() {
   const [ showUpload, setShowUpload ] = useState(false);
   const [ tolerance, setTolerance ] = useState(true);
   const [ splitSchedule, setSplitSchedule ] = useState("Yes");
   const [ numberClients, setNumberClients ] = useState("Multiple");
   const [ file, setFile ] = useState();
-  const clients = [ 'Client 1', 'Client 2' ];
-  const testingCenters = ['Testing Center 1', 'Testing Center 2', 'Testing Center 3', 'Testing Center 4'];
-
-  const handleSplitScheduleChange = (event) => {
-    setSplitSchedule(event.target.value);
-  }
-
-  const handleNumberClientsChange = (event) => {
-    setNumberClients(event.target.value);
-  }
-
-  const handleToleranceToggle = (checked) => {
-    setTolerance(checked);
-  }
-
-  const handleFileChange = (event) => {
-    console.log(event);
-    setFile(event.target.files[0]);
-  }
-
-  function displaySocialDistanceOptions() {
-    let testingCenterDropdowns = [];
-    for (const center of testingCenters) {
-      testingCenterDropdowns.push(
-        <Dropdown
-            label={center}
-            title="Select Client"
-            style="labeled"
-            toleranceToggled={tolerance}
-            options={clients}
-          />
-      );
-    }
-    return testingCenterDropdowns;
-  }
 
   return (
     <main className={styles.main}>
@@ -95,7 +63,7 @@ export default function Home() {
                 />
               <hr className={styles.hr} />
               <h4>Select a manifest that you'd like to import</h4>
-              <FileUpload onChange={handleFileChange} />
+              <FileUpload handleFileChange={setFile} />
               <UploadBar
                 file={file}
               />
@@ -106,7 +74,7 @@ export default function Home() {
               <h4>Tolerance Window:</h4>
               <div className={styles.tolerancetoggle}>
                 <Switch
-                  onChange={handleToleranceToggle}
+                  onChange={(checked) => setTolerance(checked)}
                   checked={tolerance}
                   offColor="#BDBDBD"
                   onColor="#0A2D4D"
@@ -115,7 +83,7 @@ export default function Home() {
                 />
                 <span>{tolerance ? "Toggle ON" : "Toggle OFF"}</span>
                 <span className={styles.divider}>|</span>
-                <LuClock5 className={styles.icon} />
+                <ToleranceIcon />
                 <span>Select Tolerance Level</span>
               </div>
             </div>
@@ -125,7 +93,7 @@ export default function Home() {
                 name="social_distancing"
                 options={['Yes', 'No']}
                 selected={splitSchedule}
-                handleChange={handleSplitScheduleChange}
+                handleChange={setSplitSchedule}
               />
               <hr className={styles.hr} />
               <h4>Location Checking:</h4>
@@ -138,20 +106,25 @@ export default function Home() {
                     name="number_clients"
                     options={['Single', 'Multiple']}
                     selected={numberClients}
-                    handleChange={handleNumberClientsChange}
+                    handleChange={setNumberClients}
                   />
-                  {numberClients === "Multiple" && (
-                      <div>
-                       {displaySocialDistanceOptions()}
-                      </div>
-                    )
+                  {numberClients === "Multiple" && TESTING_CENTERS.map((center, index) => (
+                      <Dropdown
+                        title={"Select Client"}
+                        options={CLIENTS}
+                        toleranceToggled={tolerance}
+                        label={center}
+                        id={`center${index}`}
+                      />
+                    ))
                   }
-                  {
-                    numberClients === "Single" && (
+                  {numberClients === "Single" && (
                       <Dropdown
                         title="Select Testing Center for Client"
                         toleranceToggled={false}
-                        options={testingCenters}
+                        options={TESTING_CENTERS}
+                        toleranceToggled={tolerance}
+                        id={"center"}
                       />
                     )
                   }
@@ -162,7 +135,9 @@ export default function Home() {
                   <Dropdown
                     title="Select Testing Center:"
                     toleranceToggled={false}
-                    options={testingCenters}
+                    options={TESTING_CENTERS}
+                    toleranceToggled={tolerance}
+                    id={"center"}
                   />
                 )
               }
