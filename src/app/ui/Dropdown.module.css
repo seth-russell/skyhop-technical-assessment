@@ -13,10 +13,6 @@
 	margin-right: 10px;
 }
 
-.option {
-	background-color: #FFFFFF;
-}
-
 .select {
 	display: flex;
 	padding-left: 20px;
@@ -30,24 +26,47 @@
 	background-color: transparent;
 }
 
-.labeled {
+.partialwidth {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
 	flex-basis: 45%;
 }
 
-.titled {
+.fullwidth {
+	display: flex;
+	flex-direction: row;
 	flex-basis: 100%;
 }
 
 /* Mobile */
 @media (max-width: 700px) {
-  .main {
-    flex-direction: column;
+	.main {
+		width: 100%;
+		flex-direction: column;
+	}
+
+  .label {
+  	font-size: 16px;
+  }
+
+  .partialwidth {
+  	margin-top: 12px;
+  	width: 100%;
+  }
+
+  .partialwidth select {
+  	flex-basis: 90%;
   }
 }
 
 /* Tablet and Smaller Desktop */
 @media (min-width: 701px) and (max-width: 1120px) {
   .main {
-    align-items: left;
+		width: 100%;
+	}
+
+  .label {
+  	font-size: 16px;
   }
 }
