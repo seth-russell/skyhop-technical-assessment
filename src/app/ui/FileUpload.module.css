@@ -23,6 +23,10 @@
 	border-color: #BDBDBD;
 }
 
+.hiddeninput {
+	display: none;
+}
+
 .icon {
 	color: #FA9D26;
 	width: 20px;
@@ -31,20 +35,6 @@
 
 .inner p {
 	padding-top: 20px;
-}
-
-.browse input::file-selector-button {
-	background-color: transparent;
-	padding: 0px;
-	border-width: 0px;
-	font-weight: bold;
-	font-size: 16px;
-	color: #0A2D4D;
-}
-
-.browse input[type='file'] {
-	width: 61px;
-	overflow: hidden;
 }
 
 .button {
